@@ -176,43 +176,6 @@ const Answer = () => {
                                         className = 'text-base px-4 bg-[#F0EFED] hover:bg-[#ECF1FF] cursor-pointer flex items-center justify-between gap-1 p-1 rounded-md' > 
                                         <IconList/>Citation<IconArrowDown/>
                                     </div>
-                                    {false && <Dropdown
-                                        offset={[0, 8]}
-                                        placement={`top-start`}
-                                        btnClassName="relative group block"
-                                        button={<div className = 'text-base px-4 bg-[#F0EFED] hover:bg-[#ECF1FF] cursor-pointer flex items-center justify-between gap-1 p-1 rounded-md' > 
-                                                <IconList/>{modeText[mode]}<IconArrowDown/>
-                                            </div>}
-                                    >
-                                        <ul
-                                            className="font-normal w-[150px] p-3 !py-0 text-darkbg bg-[#F0EFED] dark:text-white-dark dark:text-white-light/90">
-                                            <li onClick={() => {setMode("academic")}}>
-                                                <div className="dark:hover:text-white flex gap-1 hover:bg-gray-200 p-3 cursor-pointer text-base">
-                                                    <IconAcacemic/> {modeText['academic']}
-                                                </div>
-                                            </li>
-                                            <li onClick={() => {setMode("clinical")}}>
-                                                <div className="dark:hover:text-white flex gap-1 hover:bg-gray-200 p-3 cursor-pointer text-base">
-                                                    <IconClinical/> {modeText['clinical']}
-                                                </div>
-                                            </li>
-                                            <li onClick={() => {setMode("research")}}>
-                                                <div className="dark:hover:text-white flex gap-1 hover:bg-gray-200 p-3 cursor-pointer text-base">
-                                                    <IconResearch/> {modeText['research']}
-                                                </div>
-                                            </li>
-                                            <li onClick={() => {setMode("study")}}>
-                                                <div className="dark:hover:text-white flex gap-1 hover:bg-gray-200 p-3 cursor-pointer text-base">
-                                                    <IconStudy/> {modeText['study']}
-                                                </div>
-                                            </li>
-                                            <li onClick={() => {setMode("standard")}}>
-                                                <div className="dark:hover:text-white flex gap-1 hover:bg-gray-200 p-3 cursor-pointer text-base">
-                                                    <IconStandard/> {modeText['standard']}
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </Dropdown>}
                                 </div>
                                 <div className='cursor-pointer relative' onClick={onCopy}>
                                     <IconCopy/>
@@ -228,9 +191,14 @@ const Answer = () => {
                                     <ThumbDownPopUp onThumbDown={onThumbDown}/>
                                 </div>
                             </div>
-                            {!hiddenCitation && <div>
-                                Citation
-                            </div>}
+                            <div className={'text-[#636262] py-0 overflow-hidden transition-all ' + (hiddenCitation ? "h-0" : "h-fit")}>
+                                <div className='text-[20px] pb-5'>References</div>
+                                <ul style={{listStyle: 'number'}} className='px-5'>
+                                    <li className='pb-4'>American Academy of Pediatrics. <i>Red Book: Report of the Committee on Infectious Diseases. </i> American Academy of Pediatrics; 2021.</li>
+                                    <li className='pb-4'>Author last name Initials. Article title. <i>Journal Name.</i> Year;Volume(Issue):Page range. DOI</li>
+                                    <li className='pb-4'>Author last name Initials. <i>Book Title: Subtitle.</i> Publisher; Year.</li>
+                                </ul>
+                            </div>
                             <QuestionInput
                                 responseLength={responseLength} setResponseLength={setResponseLength}
                                 mode={mode} setMode={setMode} onEnter={onEnter} onNewDoc={onNewDoc}
