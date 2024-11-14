@@ -10,7 +10,7 @@ import IconSetting from '@/components/icon/header/icon-setting';
 import IconLogout from '@/components/icon/header/icon-logout';
 import Image from 'next/image';
 import QuestionInput from '@/components/home/question-input2';
-import PdfViewer from '@/components/PdfViewer';
+// import PdfViewer from '@/components/PdfViewer';
 import IconMode from '@/components/icon/home/icon-mode';
 import IconHome from '@/components/icon/sidebar/icon-home';
 import IconHistory from '@/components/icon/sidebar/icon-history';
@@ -29,6 +29,11 @@ import IconResearch from '@/components/icon/home/icon-research';
 import IconRightArrow from '@/components/icon/home/icon-right-arrow';
 import ThumbDownPopUp from '@/components/answer/thumbDownPopUp';
 import CopyMsg from '@/components/answer/copyMsg';
+import dynamic from 'next/dynamic';
+
+const PdfViewer = dynamic(() => import('@/components/PdfViewer'), {
+  ssr: false,
+});
 
 const modeText: { [key: string]: string } = {
     research: "Research",

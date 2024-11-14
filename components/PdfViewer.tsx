@@ -4,7 +4,6 @@ import * as pdfjsLib from 'pdfjs-dist';
 import Image from 'next/image';
 
 // Manually set the worker source
-pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs';
 
 interface PdfViewerProps {
     pdfUrl: string;
@@ -18,9 +17,12 @@ const PdfViewer: React.FC<PdfViewerProps> = ({ pdfUrl }) => {
     const renderIdRef = useRef<number>(0);
 
     useEffect(() => {
+        pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs';
         const loadPdf = async () => {
             try {
-                const loadedPdf = await pdfjsLib.getDocument(pdfUrl).promise;
+                // const loadedPdf = await pdfjsLib.getDocument(pdfUrl).promise;
+                const loadingTask = pdfjsLib.getDocument(pdfUrl);
+                const loadedPdf = await loadingTask.promise;
                 setPdf(loadedPdf);
             } catch (error) {
                 console.error('Error loading PDF:', error);
