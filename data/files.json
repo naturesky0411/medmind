@@ -1,0 +1,41 @@
+[
+    {
+      "id": "1",
+      "title": "Document 1",
+      "author": "Author A",
+      "name": "Document1.pdf",
+      "type": "file",
+      "size": "1 MB",
+      "publicationDate": "2024-01-01",
+      "dateUploaded": "2024-01-05",
+      "status": "published",
+      "tags": ["tag1", "tag2"]
+    },
+    {
+      "id": "2",
+      "title": "Folder 1",
+      "author": "Author B",
+      "name": "Folder1",
+      "type": "folder",
+      "size": "",
+      "publicationDate": "",
+      "dateUploaded": "2024-01-03",
+      "status": "active",
+      "tags": ["tag3"],
+      "children": [
+        {
+          "id": "3",
+          "title": "Document 2",
+          "author": "Author C",
+          "name": "Document2.docx",
+          "type": "file",
+          "size": "500 KB",
+          "publicationDate": "2024-01-10",
+          "dateUploaded": "2024-01-11",
+          "status": "draft",
+          "tags": ["tag1"]
+        }
+      ]
+    }
+  ]
+  

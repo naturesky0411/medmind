@@ -1,0 +1,11 @@
+input:focus-visible {
+    /* border-width: 0; */
+    outline: none;
+}
+.form-input:focus {
+    border-color: rgb(139, 142, 145);
+}
+.form-input{
+    background-color: #ffffff;
+    font-weight: 400;
+}
